@@ -34,3 +34,23 @@ const database = {
         }
     ]
 }
+
+export const getColors = () => {
+    return database.colors.map(color => ({...color}))
+}
+
+export const getInteriors = () => {
+    return database.interiors.map(interior => ({...interior}))
+}
+
+export const getTechnologies = () => {
+    return database.technologies.map(technology => ({...technology}))
+}
+
+export const getWheels = () => {
+    return database.wheels.map(wheel => ({...wheel}))
+}
+
+export const getCustomCars = () => {
+    return database.customCars.map(customCar => ({...customCar}))
+}

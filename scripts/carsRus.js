@@ -1,12 +1,15 @@
-import { getColors } from "colors.js"
-import { getInteriors } from "interiors.js"
-import { getTechnologies } from "technologies.js"
-import { getWheels } from "wheels.js"
-import { getCustomCars } from "customCars.js"
+import { colors } from "./colors.js"
+import { interiors } from "./interiors.js"
+import { technologies } from "./technologies.js"
+import { wheels } from "./wheels.js"
+import { customCars, getCustomCars } from "./database.js"
 
 document.addEventListener(
     "click",
     (event) => {
+        if (event.target.id === "orderButton") {
+            customCars()
+        }
     }
 )
 
@@ -17,19 +20,19 @@ export const carsRus = () => {
     <article class="choices">
         <section class="choices__colors options">
             <h2>Colors</h2>
-            ${getColors()}
+            ${colors()}
         </section>
         <section class="choices__interiors options">
             <h2>Interiors</h2>
-            ${getInteriors()}
+            ${interiors()}
         </section>
         <section class="choices__technologies options">
             <h2>Technologies</h2>
-            ${getTechnologies()}
+            ${technologies()}
         </section>
         <section class="choices__wheels options">
             <h2>Wheels</h2>
-            ${getWheels()}
+            ${wheels()}
         </section>
     </article>
 
@@ -39,7 +42,7 @@ export const carsRus = () => {
 
         <article class="customCars">
             <h2>Custom Car Orders</h2>
-            ${getCustomCars()}
+            ${customCars()}
         </article>
     `
 }

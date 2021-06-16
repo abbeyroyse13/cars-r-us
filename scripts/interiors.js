@@ -1,19 +1,22 @@
-import { getInteriors } from "./database.js"
+import { getInteriors, setInteriors } from "./database.js"
 
-const interiors = getInteriors();
+const carInteriors = getInteriors();
 
 document.addEventListener(
     "change",
-    (event) => {}
+    (event) => {
+        if (event.target.name === "interiors")
+            setInteriors(parseInt(event.target.value))
+    }
 )
 
 export const interiors = () => {
     let html = "<ul>"
 
-    const listItemsArray = interiors.map(
-        (interiors) => {
+    const listItemsArray = carInteriors.map(
+        (carInteriors) => {
             return `<li>
-                <input type="radio" name="interiors" value="${interiors.id}" /> ${interiors.interiors}
+                <input type="radio" name="interiors" value="${carInteriors.id}" /> ${carInteriors.interior}
             <li>`
         }
     )

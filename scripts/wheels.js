@@ -1,19 +1,22 @@
-import { getWheels } from "./database.js"
+import { getWheels, setWheels } from "./database.js"
 
-const wheels = getWheels();
+const carWheels = getWheels();
 
 document.addEventListener(
     "change",
-    (event) => {}
+    (event) => {
+        if (event.target.name === "wheels")
+            setWheels(parseInt(event.target.value))
+    }
 )
 
 export const wheels = () => {
     let html = "<ul>"
 
-    const listItemsArray = wheels.map(
-        (wheels) => {
+    const listItemsArray = carWheels.map(
+        (carWheels) => {
             return `<li>
-                <input type="radio" name="wheels" value="${wheels.id}" /> ${wheels.wheels}
+                <input type="radio" name="wheels" value="${carWheels.id}" /> ${carWheels.wheel}
             <li>`
         }
     )

@@ -1,19 +1,24 @@
-import { getColors } from "./database.js"
+import { getColors, setColors } from "./database.js"
 
-const colors = getColors();
+const carColors = getColors();
 
 document.addEventListener(
     "change",
-    (event) => {}
+    (event) => {
+        // this will be the custom event creation 
+        if (event.target.name === "colors") {
+            setColors(parseInt(event.target.value))
+        }
+    }
 )
 
 export const colors = () => {
     let html = "<ul>"
 
-    const listItemsArray = colors.map(
-        (colors) => {
+    const listItemsArray = carColors.map(
+        (carColors) => {
             return `<li>
-                <input type="radio" name="colors" value="${colors.id}" /> ${colors.colors}
+                <input type="radio" name="colors" value="${carColors.id}" /> ${carColors.color}
             <li>`
         }
     )

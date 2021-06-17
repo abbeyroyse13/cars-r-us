@@ -1,9 +1,9 @@
-import { getCustomCars, getTechnologies } from "./database.js"
+import { getCustomCars } from "./database.js"
 import { getColors } from "./database.js"
 import { getInteriors } from "./database.js"
 import { getTechnologies } from "./database.js"
 import { getWheels } from "./database.js"
-debugger
+
 const buildOrderListItem = (customCar) => {
     const customColors = getColors()
 

@@ -2,13 +2,14 @@ import { colors } from "./colors.js"
 import { interiors } from "./interiors.js"
 import { technologies } from "./technologies.js"
 import { wheels } from "./wheels.js"
-import { customCars, getCustomCars } from "./database.js"
+import { addOrder } from "./database.js"
+import { customCars } from "./customCars.js"
 
 document.addEventListener(
     "click",
     (event) => {
         if (event.target.id === "orderButton") {
-            customCars()
+            addOrder()
         }
     }
 )
